@@ -1,0 +1,57 @@
+Update and upgrade apt-get
+
+$ sudo apt-get update
+$ sudo apt-get upgrade
+
+
+Check for pip/pip3 installer (updated version)
+
+Make sure python is installed.
+
+$ pip -V
+
+or (for Phython3)
+
+$ pip3 -V
+
+Setting Up a Virtual Environment [this step is optional but advisable]
+
+We need to first install the venv module, part of the standard Python 3 library so that we can create virtual environments. Install if not present:
+
+$ sudo apt-get install -y python3-venv
+
+or (for python)
+
+$ sudo apt install -y virtualenv
+
+With this installed, we are ready to create environments. Let’s choose which directory we would like to put our Python programming environments in, or we can create a new directory, as in:
+
+$ mkdir environments
+$ cd environments
+
+Once you are in the directory where you would like the environments to live, you can create an environment by running the following command:
+
+$ python3 -m venv pytorch-env
+
+or (for python)
+
+$ virtualenv -p python pytorch-env
+
+Essentially, this sets up a new directory that contains a few items which we can view with the ls command.
+
+Together, these files work to make sure that your projects are isolated from the broader context of your local machine, so that system files and project files don’t mix. This is good practice for version control and to ensure that each of your projects has access to the particular packages that it needs. Python Wheels, a built-package format for Python that can speed up your software production by reducing the number of times you need to compile, will be in the Ubuntu 16.04 share directory.
+
+To use this environment, you need to activate it, which you can do by typing the following command that calls the activate script:
+
+$ source pytorch-env/bin/activate
+
+on success,
+
+(pytorch-env) user-name@user-pc:~/environments$
+
+
+Visit the official PyTorch website: http://pytorch.org/
+
+(pytorch-env) $ pip3 install http://download.pytorch.org/whl/cpu/torch-0.3.1-cp36-cp36m-linux_x86_64.whl
+(pytorch-env) $ pip3 install torchvision
+
